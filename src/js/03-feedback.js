@@ -35,16 +35,18 @@ function onFormSubmit (evt) {
     }
 }
 function populateInputText() {
-    try {
-        const stateParse = JSON.parse(localStorage.getItem(KEY_FEEDBACK_FORM_STATE));
-        feedbackFormState = stateParse;
-        if (stateParse.email) {
-            inputEmailEl.value = stateParse.email;
-        }
-        if (stateParse.message) {
-            inputMessageEl.value = stateParse.message;
-        }
-      } catch (error) {
-        console.log("parse error")
-      }
+    if (localStorage.getItem(KEY_FEEDBACK_FORM_STATE)) {
+        try {
+            const stateParse = JSON.parse(localStorage.getItem(KEY_FEEDBACK_FORM_STATE));
+            feedbackFormState = stateParse;
+            if (stateParse.email) {
+                inputEmailEl.value = stateParse.email;
+            }
+            if (stateParse.message) {
+                inputMessageEl.value = stateParse.message;
+            }
+          } catch (error) {
+            console.log("parse error")
+          }
+    }
 }
