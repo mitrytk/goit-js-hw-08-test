@@ -29,4 +29,3 @@ function isMakeItem({preview, original, description}) {
 
     markup.push(liGalleryItemEl);
 }
-console.log(galleryItems);
